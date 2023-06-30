@@ -1,0 +1,298 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.buttonStyle{
+    border-radius : 100%;
+    height: 45px;
+    width : 45px;
+    margin: 10px;
+}
+.modal{
+  background-color: aqua;
+  display:absolute;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+}
+
+.Close{
+  font-weight: bold;
+  border: 1px solid pink;
+  border-radius: 5px;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40%;
+  margin-top: 2px;
+}
+
+.content{
+  font-weight: bold;
+  margin-left: 4px;
+  margin-right: 4px;
+  text-align: center
+}
+.loading{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, .7);
+  position: absolute;
+  top: 0;
+  display: none;
+   justify-content: center;
+   align-items: center;
+}
+.loadDiv{
+  color: white;
+  height: fit-content;
+  width: fit-content;
+  font-size: 2rem;
+}
+
+
+.bold{
+  font-weight: bold;
+}
+
+.card{
+ position: relative;
+  font-size: 16px;
+  flex:0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 10px;
+}
+
+.card-stat{
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+}
+
+.grey{
+  color: grey;
+  
+}
+
+.cardinfo{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  align-content: center;
+  width:35vh;
+  height:fit-content; 
+}
+
+.contact-card{
+
+  flex-basis: 225px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    padding-bottom: 15px;
+    background-color: white;
+  
+}
+
+.card-badge{
+  position: absolute;
+  top:6px;
+  left:6px;
+  background-color: white;
+  padding: 2px 2px;
+  font-weight: bold;
+  border-radius: 7px;
+
+}
+
+.imgcls{
+  display: flex;
+  align-self: center;
+  height: 25vh;
+  width: 20vh;
+  border-radius: 1h2px;
+}
+
+.maindiv{
+
+  margin:30px;
+  display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.hero-photo{
+  max-width: 400px;
+  max-height: 400px;
+  width:40%;
+  border-radius: 15px;
+}
+
+.secdiv{
+  display: flex;
+  flex-direction: row;
+  padding: 10px 10px;
+  margin: 10px 10px;
+}
+
+.divdiv{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-y: scroll;
+  overflow: hidden;
+  }
+
+  
+.container{
+  display: flex;
+  align-items: center; 
+  justify-content:center;
+   align-items: center; 
+  background-color: pink;
+  height: 80%;
+  width: 60%;
+  margin-top: 100px;
+  margin-left: 20%;
+ 
+}
+
+.container-1{
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+}
+.container-2{
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+}
+
+.btn{
+  float: right; 
+  background-color: #61dafb;
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
+  margin:32px;
+  margin-left: 65%;
+}
+.btn-container-block-1{
+  margin:5px;
+  color:black;
+  background-color: white;
+  border:1px solid black;
+  border-radius: 3px;
+  padding:2px;
+}
+h2{
+  margin:0;
+  padding: 0;
+}
+.para{
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.abouth1{
+  color: #61dafb;
+  margin-right:25vh;
+  margin-left: 25vh;
+
+}
+
+.btn-container-block-2{
+  margin:5px;
+  color:white;
+  background-color: blue;
+  border:1px solid black;
+  border-radius: 3px;
+  padding:2px;
+}
+
+.profile{
+  display: flex;
+  max-width: 600px;
+  max-height: 600px;
+  height: auto;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.socialLogo{
+  margin: 1px;
+  height: 40px;
+  width:40px;
+  padding-left: 10px;
+  
+}
+
+.signupform{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content:center;
+   align-items: center; 
+  background-color: pink;
+  margin-top: 200px;
+  margin-left: 30%;
+  margin-right: 30%;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.signupform1{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content:center;
+   align-items: center; 
+  background-color: pink;
+  margin-left: 35%;
+  margin-right: 35%;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.signupinput{
+  margin-top: 5px;
+}
+.signupinput1{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.signupdiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,102 @@
+const firebase =  require("firebase/app");
+const firebaseAuth = require("firebase/auth");
+const express = require('express')
+const router = express.Router()
+const createUserWithEmailAndPassword = require('firebase/auth').createUserWithEmailAndPassword;
+const sed = require('firebase/auth').sendEmailVerification;
+const onAuthStateChanged = require('firebase/auth').onAuthStateChanged
+const signInWithEmailAndPassword = require('firebase/auth').signInWithEmailAndPassword
+const signout = require('firebase/auth').signOut
+const Vtoken = require('firebase/auth')
+const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv').config()
+
+const firebaseConfig = {
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    databaseURL: process.env.databaseURL,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId,
+    measurementId: process.env.measurementId
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebaseAuth.getAuth(app);
+
+
+  async function  createuser(req, res){
+    console.log(req.body)
+   
+    await  createUserWithEmailAndPassword(auth, req.body.email, req.body.password)
+    .then((userCredential) => {
+      // Signed in 
+       req.user = userCredential.user;
+        sed(req.user).then(()=>{
+          console.log("verification link send")
+          status(req.user)
+        })
+        res.status(200).json({msg : "verification link send"})
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        res.status(400).json({msg: errorCode})
+      });
+    }
+  
+    function status(user){
+        onAuthStateChanged(auth, (user1) => {
+          if (user1) {
+            const uid = user1.uid;
+            console.log("Uid of User is " + uid)
+          } else {
+              console.log("No user Created")
+          }
+        });
+        }
+
+
+        function signin(req, res){
+          console.log(req.body.email, req.body.password)
+            signInWithEmailAndPassword(auth, req.body.email, req.body.password)
+            .then((userCredential) => {
+              req.user = userCredential.user;
+              var id = req.user.uid
+              var email = req.user.email
+              console.log(id, email, req.user.emailVerified)
+              if(req.user.emailVerified){
+                const token = jwt.sign({ id, email }, "hellomfs", {
+                  expiresIn: '30d',
+                })
+                
+                res.status(200).json({ msg: 'User Created',id, token, email })
+              }
+              else{
+                console.log("email not verified")
+                res.status(401).json({msg:"Email not Verified"})
+              }
+            })
+            .catch((error) => {
+              var errorCode = error.code;
+              console.log(errorCode)
+              res.status(500).json({msg:errorCode})
+            });
+           }
+          
+function SIGNout(req, res){
+  const user = auth.currentUser
+  if(user){
+  signout(auth).then(() => {
+   res.status(200).json({msg:"LOGOUT SUCCESSFULL"})
+  }).catch((error) => {
+    res.status(500).json({msg: error.message})
+  });
+}else{
+res.status(403).json({msg:"USER ALREADY LOGGED OUT"})
+}
+}
+module.exports = {signin, createuser, status, SIGNout}
