@@ -30,7 +30,7 @@ export default function Upload(props){
         console.log(err)
     })
 
-    await fetch(`http://localhost:8080/user/ouser/${userId.fbId}`)
+    await fetch(`https://backend.study-ezy.tech/user/ouser/${userId.fbId}`)
     .then(res=>res.json()).then(async data=>{
            console.log(data._id, "author")
             const FinalData = {
@@ -41,7 +41,7 @@ export default function Upload(props){
             "images": cloudimg,
             "author": data._id
             }
-            await fetch(`http://localhost:8080/recipe/`, {
+            await fetch(`https://backend.study-ezy.tech/recipe/`, {
                 method:'POST',
                 body:JSON.stringify(FinalData),
                 headers:{
@@ -49,7 +49,7 @@ export default function Upload(props){
                 }
             })
        }).then(()=>{
-           console.log(recipe, "recipe")
+           window.location.replace("recipe")
        }).catch(err=>{
            console.log(err)
        })
@@ -61,10 +61,10 @@ export default function Upload(props){
         <div className="signupform"> 
         <h1 >Upload Recipe</h1>
         <form className="signupform1" onSubmit={submitImage}>
-            <input type="text" className="signupinput" name="title" placeholder="Title" onChange={handleChange}/>
-            <input type="text" className="signupinput" name="description" placeholder="Description" onChange={handleChange}/>
-            <input type="text" className="signupinput" name="ingredients" placeholder="ingredient" onChange={handleChange}/>
-            <input type="text" className="signupinput" name="steps" placeholder="Steps" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="title" placeholder="Title" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="description" placeholder="Description" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="ingredients" placeholder="ingredient" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="steps" placeholder="Steps" onChange={handleChange}/>
             <input type="file" className="signupinput" name="images" placeholder="image" onChange={(e)=>setImage(e.target.files[0])} />
             <input type="submit" className="signupinput1" ></input>
         </form>

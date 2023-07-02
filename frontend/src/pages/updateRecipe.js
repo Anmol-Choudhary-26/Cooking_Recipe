@@ -57,7 +57,7 @@ export default function Recipe(){
         "images":  image !== ""?cloudimg:l1,
         }
    
-        axios.patch(`http://localhost:8080/recipe/recipe/${location.state.item.item._id}`,(FinalData))
+        axios.patch(`https://backend.study-ezy.tech/recipe/recipe/${location.state.item.item._id}`,(FinalData))
         .then(()=>{
            window.location.replace("recipe")
        }).catch(err=>{
@@ -70,10 +70,10 @@ export default function Recipe(){
          <div className="signupform"> 
         <h1 >Update Recipe</h1>
         <form className="signupform1" onSubmit={updateRecipe}>
-            <input type="text" className="signupinput" name="title" placeholder="Title" onChange={handleChange}/>
-            <input type="text" className="signupinput" name="description" placeholder="Description" onChange={handleChange}/>
-            <input type="text" className="signupinput" name="ingredients" placeholder="ingredient" onChange={handleChange}/>
-            <input type="text" className="signupinput" name="steps" placeholder="Steps" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="title" placeholder="Title" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="description" placeholder="Description" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="ingredients" placeholder="ingredient" onChange={handleChange}/>
+            <input type="text" className="signupinputR" name="steps" placeholder="Steps" onChange={handleChange}/>
             <input type="file" className="signupinput" name="images" placeholder="image" onChange={(e)=>setImage(e.target.files[0])} />
             <input type="submit" className="signupinput1" ></input>
         </form>

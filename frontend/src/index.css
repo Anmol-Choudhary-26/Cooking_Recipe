@@ -2,7 +2,6 @@ body {
   margin: 0;
   background-color: #000000;
     background-image: url('https://res.cloudinary.com/duxuhubym/image/upload/v1688268282/pexels-roman-odintsov-4551832_oywe3x.jpg');
-  /* background-size: cover; */
   background-repeat: no-repeat;
 background-size: auto;
   background-position: center center;
@@ -250,14 +249,13 @@ h2{
 
 }
 
-
-
 .profile{
   display: flex;
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 450px;
+  max-height: 450px;
+  align-self: center;
   height: auto;
-  margin-top: 5px;
+  margin-top: 15px;
   border-radius: 5px;
   background-color: #000000;
   color: #ffffff;
@@ -309,11 +307,23 @@ code {
    background-color: #303245;
    border-radius: 12px;
    border: 0;
+
    margin-left: 30%;
    margin-right: 100px;
    color: #eee;
    font-size: 18px;
    width: 250px;
+}
+.signupinputR{
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  height: calc(2.5em + 4.75rem + 2px);
+  margin-left: 30%;
+  margin-right: 100px;
+  color: #eee;
+  font-size: 18px;
+  width: 250px;
 }
 .signupinput1{
   margin-top: 5px;

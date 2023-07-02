@@ -30,7 +30,7 @@ async function signInBack(data){
 const submitForm =async (e) => {
 	e.preventDefault();
 	
-	await fetch(`http://localhost:8080/auth/login`, {
+	await fetch(`https://backend.study-ezy.tech/auth/login`, {
 		method:'POST',
 		body:JSON.stringify(Form),
 		headers:{
@@ -39,7 +39,7 @@ const submitForm =async (e) => {
 	})
 	.then((res)=> res.json()).then(async (data)=>{
 		console.log(data)
-        await fetch(`http://localhost:8080/user/ouser/${data.id}`, {
+        await fetch(`https://backend.study-ezy.tech/user/ouser/${data.id}`, {
 		method:'GET',
 		headers:{
 			'Content-Type':'application/json'
@@ -62,7 +62,7 @@ const submitForm =async (e) => {
 					"fbid": UserData.fbId,
 					"name": localStorage.getItem("username"),
 				}
-				fetch('http://localhost:8080/user/create', {
+				fetch('https://backend.study-ezy.tech/user/create', {
 					method: 'POST',
 					body: JSON.stringify(userData),
 					headers:{

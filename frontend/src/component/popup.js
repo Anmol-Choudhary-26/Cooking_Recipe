@@ -12,7 +12,7 @@ const pop = () => (
         close => (
             <div className='modal'>
                 <button className='Close' onClick={async () => {
-                            await fetch("https://semreg.study-ezy.tech/auth/logout/", { method: "POST" }).then((res) => res.json()).then((data) => {
+                            await fetch("https://backend.study-ezy.tech/auth/logout/", { method: "POST" }).then((res) => res.json()).then((data) => {
                                 sessionStorage.clear()
                                 localStorage.clear()
                                 console.log(data)

@@ -38,7 +38,7 @@ const element = data.map((item, index) => {
     const datafunction = async () => {
         try {
             const result = await axios.get(
-                `http://localhost:8080/recipe/search/${Form}`, {
+                `https://backend.study-ezy.tech/recipe/search/${Form}`, {
                     method:'GET',
                     headers:{
                         'Content-Type':'application/json'

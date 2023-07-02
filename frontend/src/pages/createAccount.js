@@ -12,7 +12,7 @@ export default function Createuser(){
     const submitForm= async (e) => {
         e.preventDefault();
         localStorage.setItem("username", JSON.stringify(Form.username))    
-        await fetch(`http://localhost:8080/auth/signup`, {
+        await fetch(`https://backend.study-ezy.tech/auth/signup`, {
             method:"POST", 
             body:JSON.stringify(Form),
             headers:{

@@ -11,8 +11,6 @@ function SingleRecipe() {
     function clickHandler(){
       navigate("/updateRecipe", {state: {item : location.state.item}})
     }
-   console.log(localStorage.getItem("USERID"), JSON.stringify(location.state.item.item.author))
-   console.log(localStorage.getItem("USERID") === JSON.stringify(location.state.item.item.author))
  return(
   <>
  <div className="container">
