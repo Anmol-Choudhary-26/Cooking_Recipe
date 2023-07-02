@@ -12,7 +12,7 @@ const SignUp = () => {
 
 
 async function signInBack(data){
-    await fetch(`http://localhost:8080/user/ouser/${data.fbId}`).then((res)=>res.json()).then((data)=>{
+    await fetch(`https://backend.study-ezy.tech/${data.fbId}`).then((res)=>res.json()).then((data)=>{
      
       if(data.msg === "Not Present" ){
         isUserDataPresent = false
