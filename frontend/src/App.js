@@ -7,13 +7,16 @@ import UploadRecipe from './pages/upload';
 import SingleRecipe from './pages/singleRecipepopup';
 import CreateUser from './pages/createAccount'
 import UpdateRecipe from './pages/updateRecipe'
+import Search from './pages/search'
 function App() {
  
   return (
+    <div className='imgdiv'>
     <Router>
            
             <Routes>
-                <Route exact path='/' element={<recipe />} />
+              <Route path='/search' element={<Search />} />
+                <Route exact path='/' element={<SignUp />} />
                 {/* <Route path='/about' element={<About />} /> */}
                 <Route path='/sign-up' element={<CreateUser />} />
                 <Route path='/recipe' element={<Blogs />} />
@@ -23,6 +26,7 @@ function App() {
                 <Route path = '/updateRecipe' element={<UpdateRecipe/>} />
             </Routes>
         </Router>
+        </div>
   );
 }
 

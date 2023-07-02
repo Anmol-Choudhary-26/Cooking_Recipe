@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios'
 import {useLocation } from 'react-router-dom'
 
 export default function Recipe(){
@@ -17,7 +18,6 @@ export default function Recipe(){
     
     const updateRecipe = async (e)=>{
         e.preventDefault()
-        console.log('TYPE OF ', typeof(image))
         const data = new FormData()
         data.append("file", image)
         data.append("upload_preset", "recipe")
@@ -37,24 +37,29 @@ export default function Recipe(){
     })
     }
 
+    let t1 = recipe.title
+    let d1 = recipe.description
+    let i1 = recipe.ingredients
+    let s1 = recipe.steps
+    let l1 = location.state.item.item.images
+    console.log(t1, typeof(t1))
+    console.log(d1, typeof(d1))
+    console.log(i1, typeof(i1))
+    console.log(s1, typeof(s1))
+    console.log(location.state.item.item._id, typeof(location.state.item.item._id))
+
+
     const FinalData = {
-        "title": recipe.title,
-        "description": recipe.description,
-        "ingredients": recipe.ingredients,
-        "steps": recipe.steps,
-        "images":  image !== ""?cloudimg:location.state.item.item.images,
+        "title": t1 !== undefined ? t1 :location.state.item.item.title,
+        "description":  d1 !== undefined ? d1 :location.state.item.item.description,
+        "ingredients":  i1 !== undefined ? i1 :location.state.item.item.ingredients,
+        "steps":  i1 !== undefined ? i1 :location.state.item.item.steps,
+        "images":  image !== ""?cloudimg:l1,
         }
    
-            
-            await fetch(`http://localhost:8080/recipe/recipe/${location.state.item.item._id}`, {    
-                method:'PATCH',
-                body:FinalData,
-                headers:{
-                    'Content-Type':'application/json'
-                }
-            })
-       .then(()=>{
-           console.log(recipe, "recipe")
+        axios.patch(`http://localhost:8080/recipe/recipe/${location.state.item.item._id}`,(FinalData))
+        .then(()=>{
+           window.location.replace("recipe")
        }).catch(err=>{
            console.log(err)
        })

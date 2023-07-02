@@ -68,6 +68,9 @@ export default function Upload(props){
             <input type="file" className="signupinput" name="images" placeholder="image" onChange={(e)=>setImage(e.target.files[0])} />
             <input type="submit" className="signupinput1" ></input>
         </form>
+        <div className='container-2' >
+				<button className='signupinput2' onClick={()=>{window.location.replace("recipe")}}>Go Back</button>
+			</div>
         </div>
         </>
     )

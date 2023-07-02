@@ -1,43 +1,35 @@
 import React from "react";
 import Popup from '../popup.js';
+import {useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const NavStyle = {
+        overflow: "hidden",
         display: "flex",
-        flexDirection: "row",
         backgroundColor: "pink",
         borderRadius: "10px",
         color: "white",
         margin: "10px",
-        gap: "60%",
+        gap:"50%",
         fontFamily: "Arial",
         fontSize: "30px",
         height: "60px",
     };
-
-    const componentStyle = {
-        padding: "10px",
-    };
+    
+    const navigate = useNavigate()
    
-    const navRight = {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center" 
-    };
-    const inputStyle = {
-        borderRadius : "10px",
-        height:"30px"
-
-    };
+    function clickHandler(){
+      navigate("/search")
+    }
 	return (
 
 		<>
 			<nav style={NavStyle}>
-                <div style={componentStyle}>
+                <div className="left">
                         <a href="/UploadRecipe" >Add Recipes</a>
                         </div>  
-                    <div style={navRight}>
-                       <input style={inputStyle} type="text" placeholder="Search.." name="search" />
+                    <div className="right">
+                       <img className="buttonStyle"  src={`../img/loupe.png`} alt="star logo" onClick={()=>{clickHandler()}} />
                           <Popup />
                        </div>
                 

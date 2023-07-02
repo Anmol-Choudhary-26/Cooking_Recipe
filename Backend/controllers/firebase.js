@@ -61,7 +61,7 @@ const firebaseConfig = {
 
 
         function signin(req, res){
-          console.log(req.body.email, req.body.password)
+          console.log(req.body)
             signInWithEmailAndPassword(auth, req.body.email, req.body.password)
             .then((userCredential) => {
               req.user = userCredential.user;

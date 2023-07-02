@@ -48,6 +48,10 @@ export default function Createuser(){
             <input className="signupinput" type= 'password' name = 'password' placeholder="Enter password"onChange={handleForm}></input>
             <input className="signupinput1"  type='submit' ></input>
         </form>
+        <div className='container-2' >
+                <h3 >Already have an account?</h3>
+				<button className='signupinput2' onClick={()=>{window.location.replace("login")}}>Login</button>
+			</div>
         </div>      
         </>
     )

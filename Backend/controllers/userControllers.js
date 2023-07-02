@@ -7,12 +7,15 @@ const getAllTasks = asyncWrapper(async (req, res) => {
   res.status(200).json( User )
 })
 
+
+
 const createTask = asyncWrapper(async (req, res) => {
   const User = await user.create(req.body)
   res.status(201).json( User )
 })
 
 const getTask = asyncWrapper(async (req, res) => {
+  console.log(req.params.id)
   const User = await user.findOne({fbid : req.params.id}).populate("recipe")
   if (!User) {
    res.status(200).json({msg:`Not Present`})

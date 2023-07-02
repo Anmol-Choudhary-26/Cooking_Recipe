@@ -1,15 +1,21 @@
 body {
   margin: 0;
+  background-color: #000000;
+    background-image: url('https://res.cloudinary.com/duxuhubym/image/upload/v1688268282/pexels-roman-odintsov-4551832_oywe3x.jpg');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+background-size: auto;
+  background-position: center center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  
 }
 
 .buttonStyle{
@@ -27,15 +33,13 @@ code {
 }
 
 .Close{
-  font-weight: bold;
-  border: 1px solid pink;
-  border-radius: 5px;
-  background-color: pink;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 40%;
-  margin-top: 2px;
+ display: flex;
+ border :1px solid black;
+ border-radius: 3px;
+ font-size: 16px;
+ font-weight: bold;
+ margin:3px;
+ background-color: pink;
 }
 
 .content{
@@ -149,6 +153,7 @@ code {
   max-height: 400px;
   width:40%;
   border-radius: 15px;
+  margin-top: 10px;
 }
 
 .secdiv{
@@ -159,28 +164,51 @@ code {
 }
 
 .divdiv{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  overflow-y: scroll;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  flex-direction: column;
+  background-color: #2196F3;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+ 
+  }
+  .divdiv2{
+    display: flex;
+    flex-direction: column;
+    background-color: #2196F3;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+   
+    }
+
+  .divdiv > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    align-items: center; 
+    background-color: pink;
+    width: fit-content;
+    margin-left: 20%;
+    border-radius: 10px;
+    width:50%;
+    
   }
 
-  
-.container{
-  display: flex;
-  align-items: center; 
-  justify-content:center;
-   align-items: center; 
-  background-color: pink;
-  height: 80%;
-  width: 60%;
-  margin-top: 100px;
-  margin-left: 20%;
- 
-}
-
-.container-1{
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content:center;
+     align-items: center; 
+    background-color: pink;
+    height: 80%;
+    width: 60%;
+    margin-top: 100px;
+    margin-left: 20%;
+    border-radius: 15px;
+  }
+.container-1{ 
   display: flex;
   flex-direction: column;
   align-items: top;
@@ -188,26 +216,24 @@ code {
 .container-2{
   display: flex;
   flex-direction: row;
-  align-items: top;
+  align-items: center;
+  gap: 5px;
+  
 }
+
 
 .btn{
   float: right; 
-  background-color: #61dafb;
   border-radius: 5px;
-  width: fit-content;
-  height: fit-content;
-  margin:32px;
-  margin-left: 65%;
+  margin:24px;
+  margin-left: 60%;
+  background-color: #303245;
+  border-radius: 12px;
+  color: #eee; 
+  height: 30px;
+  margin-bottom: 10px;
 }
-.btn-container-block-1{
-  margin:5px;
-  color:black;
-  background-color: white;
-  border:1px solid black;
-  border-radius: 3px;
-  padding:2px;
-}
+
 h2{
   margin:0;
   padding: 0;
@@ -224,14 +250,7 @@ h2{
 
 }
 
-.btn-container-block-2{
-  margin:5px;
-  color:white;
-  background-color: blue;
-  border:1px solid black;
-  border-radius: 3px;
-  padding:2px;
-}
+
 
 .profile{
   display: flex;
@@ -283,16 +302,61 @@ code {
   gap: 10px;
   border-radius: 5px;
 }
-
+.h{
+  margin-left: 15px;
+}
 .signupinput{
-  margin-top: 5px;
+   background-color: #303245;
+   border-radius: 12px;
+   border: 0;
+   margin-left: 30%;
+   margin-right: 100px;
+   color: #eee;
+   font-size: 18px;
+   width: 250px;
 }
 .signupinput1{
   margin-top: 5px;
   margin-bottom: 10px;
+  background-color:dodgerblue;
+   border-radius: 12px;
+   border: 0;
+   margin-left: 30%;
+   margin-right: 100px;
+   color: #eee;
+   font-size: 18px;
+}
+.signupinput2{
+  background-color: #303245;
+   border-radius: 12px;
+   color: #eee; 
+   height: 30px;
+   margin-bottom: 10px;
 }
 .signupdiv{
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+.modal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.left{
+  display: flex;
+  align-items: center;
+  float:left;
+ margin-left:8px;
+  width:80%;
+  }
+  .right{
+    display: flex;
+    align-items: center;
+  float:right;
+  width:35%;
+  
+  }

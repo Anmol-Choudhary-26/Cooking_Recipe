@@ -2,22 +2,31 @@ import React from "react";
 import Popup from 'reactjs-popup';
 
 const pop = () => (
+
+    
     <Popup trigger=
     { <img className="buttonStyle"  src={`../img/user.png`} alt="star logo" />}
   >
     {
+    
         close => (
             <div className='modal'>
-                <div className='content' onClick={()=>close()}>
-                   My Recipes
-                </div>
-                <div className='content' onClick={()=>close()}>
-                   logout
-                </div>
+                <button className='Close' onClick={async () => {
+                            await fetch("https://semreg.study-ezy.tech/auth/logout/", { method: "POST" }).then((res) => res.json()).then((data) => {
+                                sessionStorage.clear()
+                                localStorage.clear()
+                                console.log(data)
+                                setTimeout(() => {
+                                    window.location.replace("login")
+                                }, 1000);
+                            })
+                        }}>
+                    logout
+                </button>
                 <div>
                     <button className="Close" onClick=
-                        {() => close()}>
-                            x
+                        {()=>close()}>
+                            Close
                     </button>
                 </div>
             </div>

@@ -7,8 +7,19 @@ const getAllRecipe = asyncWrapper(async (req, res) => {
     res.status(200).json( Recipe )
 })
 
+const searchRecipe = asyncWrapper(async (req, res) => {
+    const Recipe = await recipe.find({
+      "$or":[
+        {"title":{$regex:req.params.key}},
+        {"ingredients":{$regex:req.params.key}}
+      ]
+    })
+    res.status(200).json( Recipe )
+})
+
 const createRecipe = asyncWrapper(async (req, res) => {
     const Recipe = await recipe.create(req.body)
+    console.log(Recipe)
     res.status(201).json( Recipe )
 })
 
@@ -31,16 +42,17 @@ const deleteRecipe = asyncWrapper(async (req, res, next) => {
 
 const updateRecipe = asyncWrapper(async (req, res, next) => {
     console.log(req.body)
-    const Recipe = recipe.findOneAndUpdate({ _id:req.params.id}, req.body, {
+    console.log(req.params.id)
+    const Recipe = await recipe.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     })
-  
+   console.log(Recipe)
     if (!Recipe) {
       res.status(404).json({msg:"Recipe not found"})
     }
   
-    res.status(200).json( Recipe )
+    res.status(200).send(Recipe)
   })
 
 
@@ -51,4 +63,5 @@ const updateRecipe = asyncWrapper(async (req, res, next) => {
     getRecipe,
     updateRecipe,
     deleteRecipe,
+    searchRecipe
   }

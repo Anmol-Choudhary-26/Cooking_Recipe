@@ -12,7 +12,6 @@ const SignUp = () => {
 
 
 async function signInBack(data){
-   console.log(data)
     await fetch(`http://localhost:8080/user/ouser/${data.fbId}`).then((res)=>res.json()).then((data)=>{
      
       if(data.msg === "Not Present" ){
@@ -20,15 +19,12 @@ async function signInBack(data){
         return
       }
       isUserDataPresent = true 
-	  console.log(isUserDataPresent)
       return
     }).catch(e=>{
         console.log(e,"error")
         isUserDataPresent = false
         return
     })
-    
-    console.log("end")
 }
 
 const submitForm =async (e) => {
@@ -42,7 +38,15 @@ const submitForm =async (e) => {
 		}
 	})
 	.then((res)=> res.json()).then(async (data)=>{
-        console.log(data,"lksjfl")
+		console.log(data)
+        await fetch(`http://localhost:8080/user/ouser/${data.id}`, {
+		method:'GET',
+		headers:{
+			'Content-Type':'application/json'
+		}
+	}).then((res)=> res.json()).then(async (data1)=>{
+		localStorage.setItem("USERID", JSON.stringify(data1._id))
+	})
 	if(data.msg === `User Created`){
 		const UserData = {
 			"email": data.email,
@@ -50,8 +54,6 @@ const submitForm =async (e) => {
 			"fbId" : data.id,
 		}
 		localStorage.setItem("userData", JSON.stringify(UserData))
-		console.log(localStorage.getItem("userData"), " user data")
-		console.log(localStorage.getItem("username"), " user name")
 		await signInBack(UserData)
 		setTimeout(() => {
 			if(!isUserDataPresent){
@@ -66,6 +68,9 @@ const submitForm =async (e) => {
 					headers:{
 						'Content-Type':'application/json'
 					}
+			}).then((res)=> res.json()).then(async (data)=>{
+				console.log(data)
+				localStorage.setItem("USERID", JSON.stringify(data._id))
 			})
 		}
 			window.location.replace("recipe" )
@@ -81,12 +86,17 @@ const submitForm =async (e) => {
 }
 	return (
 		<div className='signupform'>
-			<h1>login</h1>
+			 <h1 >Wellcome to ShareRecipe</h1>
 			<form  className="signupform1" onSubmit={submitForm}>
+			<h1 className='h'>login</h1>
 				<input className='signupinput' type='text' placeholder=' Enter Email' name= "email" onChange={handleForm}></input>
 				<input className='signupinput' type='password' placeholder='Enter Password' name= "password" onChange={handleForm}></input>
 				<input  className='signupinput1' type='submit'></input>
 			</form>
+			<div className='container-2' >
+                <h3 >Didn't have an account?</h3>
+				<button className='signupinput2' onClick={()=>{window.location.replace("sign-up")}}>Sign Up</button>
+			</div>
 		</div>
 	);
 };
