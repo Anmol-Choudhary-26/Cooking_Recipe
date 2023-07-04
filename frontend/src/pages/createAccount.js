@@ -40,7 +40,7 @@ export default function Createuser(){
     return(
         <>  
        <div className="signupform">
-        <h1 >Wellcome to ShareRecipe</h1>
+        <h1 className="h">Wellcome to ShareRecipe</h1>
         <form className="signupform1" onSubmit={submitForm}>
             <h2 >SignUp</h2>
             <input className="signupinput" type='text' placeholder="Enter email" name = "email" onChange={handleForm}></input>

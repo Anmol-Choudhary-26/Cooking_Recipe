@@ -86,7 +86,7 @@ const submitForm =async (e) => {
 }
 	return (
 		<div className='signupform'>
-			 <h1 >Wellcome to ShareRecipe</h1>
+			 <h1 className='h' >Wellcome to ShareRecipe</h1>
 			<form  className="signupform1" onSubmit={submitForm}>
 			<h1 className='h'>login</h1>
 				<input className='signupinput' type='text' placeholder=' Enter Email' name= "email" onChange={handleForm}></input>

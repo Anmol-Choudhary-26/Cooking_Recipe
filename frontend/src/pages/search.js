@@ -6,9 +6,7 @@ import Navbar  from "../component/Navbar";
 const Search = () =>{
     const inputStyle = {
         backgroundColor: "#303245",
-        // border-radius: 12px;
         color: "#eee",
-        // height: 30px;
         marginBottom: "10px",
         fontSize :"15px",
         fontWeight:"bold",

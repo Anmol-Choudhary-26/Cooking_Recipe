@@ -240,6 +240,7 @@ h2{
 .para{
   font-size: 22px;
   font-weight: bold;
+  margin:10px;
 }
 
 .abouth1{
@@ -295,24 +296,19 @@ code {
   justify-content:center;
    align-items: center; 
   background-color: pink;
-  margin-left: 35%;
-  margin-right: 35%;
   gap: 10px;
   border-radius: 5px;
 }
 .h{
-  margin-left: 15px;
+  text-align: center;
+  margin: 10px;
 }
 .signupinput{
    background-color: #303245;
    border-radius: 12px;
    border: 0;
-
-   margin-left: 30%;
-   margin-right: 100px;
    color: #eee;
    font-size: 18px;
-   width: 250px;
 }
 .signupinputR{
   background-color: #303245;
@@ -323,7 +319,6 @@ code {
   margin-right: 100px;
   color: #eee;
   font-size: 18px;
-  width: 250px;
 }
 .signupinput1{
   margin-top: 5px;
@@ -331,8 +326,7 @@ code {
   background-color:dodgerblue;
    border-radius: 12px;
    border: 0;
-   margin-left: 30%;
-   margin-right: 100px;
+   height: 30px;
    color: #eee;
    font-size: 18px;
 }
