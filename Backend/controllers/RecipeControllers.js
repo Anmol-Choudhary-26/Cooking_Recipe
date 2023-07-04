@@ -10,8 +10,8 @@ const getAllRecipe = asyncWrapper(async (req, res) => {
 const searchRecipe = asyncWrapper(async (req, res) => {
     const Recipe = await recipe.find({
       "$or":[
-        {"title":{$regex:req.params.key}},
-        {"ingredients":{$regex:req.params.key}}
+        {"title":{$regex:req.params.key, $options :"i"}},
+        {"ingredients":{$regex:req.params.key,$options :"i"}}
       ]
     })
     res.status(200).json( Recipe )
